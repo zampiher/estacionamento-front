@@ -1,0 +1,130 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-bottom: 1px solid #dfe7f1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.75rem;
+  background: #f8fafc;
+  border-radius: 999px;
+}
+
+.nav-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+  margin-right: 0.25rem;
+}
+
+.top-nav button {
+  padding: 0.65rem 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.top-nav button.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.page-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-header h2 {
+  margin: 0 0 0.25rem;
+  color: #0f172a;
+}
+
+.card-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.form-grid input,
+.form-grid select {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+.form-grid button {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.data-table th {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.status-message {
+  padding: 0.75rem 1rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  color: #1d4ed8;
+}
+
+.page-state {
+  color: #475569;
+  padding: 1rem 0;
+}
