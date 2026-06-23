@@ -11,3 +11,17 @@ export async function getUsers() {
     
     return response.json();
 }
+
+export async function createUser(user: any) {
+    const response = await fetch(`${API_URL}/users`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+        throw new Error('Erro ao criar usuário');
+    }
+
+    return response.json();
+}
