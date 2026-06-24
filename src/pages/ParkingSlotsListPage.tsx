@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
-import { getCarSlots, getCars } from '../services/users';
+import { getCarSlots, getCars, getUsers } from '../services/users';
 
 type Car = {
   id: number;
   plate: string;
+  userId?: number | null;
+};
+
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
 };
 
 type CarSlot = {
@@ -15,14 +22,16 @@ type CarSlot = {
 export function ParkingSlotsListPage() {
   const [slots, setSlots] = useState<CarSlot[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const [slotsData, carsData] = await Promise.all([getCarSlots(), getCars()]);
+        const [slotsData, carsData, usersData] = await Promise.all([getCarSlots(), getCars(), getUsers()]);
         setSlots(slotsData);
         setCars(carsData);
+        setUsers(usersData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -51,17 +60,20 @@ export function ParkingSlotsListPage() {
             <th>Preço</th>
             <th>Status</th>
             <th>Carro</th>
+            <th>Proprietário</th>
           </tr>
         </thead>
         <tbody>
           {slots.map((slot) => {
             const car = cars.find((item) => item.id === slot.carId);
+            const owner = users.find((user) => user.id === car?.userId);
             return (
               <tr key={slot.id}>
                 <td>{slot.id}</td>
                 <td>R$ {slot.price}</td>
                 <td>{slot.carId ? 'Ocupada' : 'Disponível'}</td>
                 <td>{car ? car.plate : '-'}</td>
+                <td>{owner ? `${owner.firstName} ${owner.lastName}` : '-'}</td>
               </tr>
             );
           })}
